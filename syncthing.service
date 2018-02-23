@@ -1,0 +1,13 @@
+[Unit]
+Description=Syncthing service
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+TimeoutStartSec=5
+Restart=always
+ExecStart=/usr/bin/syncthing --gui-address="http://0.0.0.0:8205" --home=/st
+Environment="HOME=/st"
+
+[Install]
+WantedBy=multi-user.target
